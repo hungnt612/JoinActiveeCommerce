@@ -21,17 +21,26 @@ import {
 type CustomInputProps = {
   label: string;
   placeholder: string;
+  action: string;
 };
 
-const CustomInput: React.FC<CustomInputProps> = ({label, placeholder}) => {
+const CustomInput: React.FC<CustomInputProps> = ({
+  label,
+  placeholder,
+  action,
+}) => {
   const isEmail = label === 'Email';
   const isPassword = label === 'Password';
   return (
     <View style={styles.container}>
       <Text style={styles.customInputTitle}>{label}</Text>
-      <TextInput style={styles.customInput}>{placeholder}</TextInput>
+      <TextInput
+        style={styles.customInput}
+        placeholder={placeholder}
+        secureTextEntry={isPassword}
+      />
       {isEmail ? (
-        <Text style={styles.txtUnder}>or, Login with phone number</Text>
+        <Text style={styles.txtUnder}>or, {action} with phone number</Text>
       ) : null}
       {isPassword ? (
         <Text style={styles.txtUnder}>Forgot Password ?</Text>
@@ -49,7 +58,7 @@ const styles = StyleSheet.create({
   },
   customInput: {
     //color: isDarkMode ? Colors.white : Colors.black,
-    color: 'orange',
+    color: '#E7421B',
     borderWidth: 0.5,
     borderColor: '#D0D0D0',
     padding: 10,
@@ -57,13 +66,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   customInputTitle: {
-    color: 'orange',
+    color: '#E7421B',
     fontWeight: 'bold',
   },
-  txtUnder:{
+  txtUnder: {
     textAlign: 'right',
-    color: 'red',
+    color: '#E7421B',
     textDecorationLine: 'underline',
+    fontStyle: 'italic',
   },
 });
 export default CustomInput;

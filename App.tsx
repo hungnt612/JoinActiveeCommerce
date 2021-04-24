@@ -27,7 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Loginscreen from "./src/screen/loginscreen";
-
+import SignUpScreen from "./src/screen/signUpScreen";
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -39,7 +39,7 @@ const App = () => {
   return (
     <SafeAreaView style={{flex:1, backgroundStyle}}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Loginscreen></Loginscreen>
+      <SignUpScreen></SignUpScreen>
     </SafeAreaView>
   );
 };

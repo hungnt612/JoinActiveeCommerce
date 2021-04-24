@@ -31,19 +31,26 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   onPress,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
+  const isSignInBtn = label === 'Sign Up';
   return (
-    <TouchableOpacity
-      onPress={() => onPress(label)}
-      style={{
-        height: 60,
-        borderRadius: 10,
-        marginVertical: 10,
-        backgroundColor: colorCode,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <Text style={styles.customButtonTxt}>{label}</Text>
-    </TouchableOpacity>
+    <View>
+      {isSignInBtn ? (
+        <Text style={styles.txtUnder}>or, create new account ?</Text>
+      ) : null}
+      <TouchableOpacity
+        onPress={() => onPress(label)}
+        style={{
+          height: 60,
+          borderRadius: 10,
+          marginVertical: 10,
+          backgroundColor: colorCode,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginHorizontal: 35,
+        }}>
+        <Text style={styles.customButtonTxt}>{label}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -64,7 +71,13 @@ const styles = StyleSheet.create({
   //   marginBottom:10,
   // },
   customButtonTxt: {
-    color: 'white', fontWeight: 'bold',
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  txtUnder: {
+    color: 'gray',
+    alignSelf: 'center',
+    top:6,
   },
 });
 export default CustomButton;
