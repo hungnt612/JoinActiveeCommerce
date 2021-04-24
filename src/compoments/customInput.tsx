@@ -30,21 +30,40 @@ const CustomInput: React.FC<CustomInputProps> = ({
   action,
 }) => {
   const isEmail = label === 'Email';
-  const isPassword = label === 'Password';
+  const isPasswordInLogin = label === 'Password' && action === 'Login';
+  const isPasswordInRegister = action === 'Register' && label === 'Password';
+  const sceenAction = action === 'Login';
+
+  if (sceenAction) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.customInputTitle}>{label}</Text>
+        <TextInput
+          style={styles.customInput}
+          placeholder={placeholder}
+          secureTextEntry={isPasswordInLogin || isPasswordInRegister}
+        />
+        {isEmail ? (
+          <Text style={styles.txtUnder}>or, {action} with phone number</Text>
+        ) : null}
+        {isPasswordInLogin ? (
+          <Text style={styles.txtUnder}>Forgot Password ?</Text>
+        ) : null}
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.customInputTitle}>{label}</Text>
       <TextInput
         style={styles.customInput}
         placeholder={placeholder}
-        secureTextEntry={isPassword}
+        secureTextEntry={isPasswordInLogin || isPasswordInRegister}
       />
       {isEmail ? (
-        <Text style={styles.txtUnder}>or, {action} with phone number</Text>
+        <Text style={styles.txtUnder}>or, {action} with a phone number</Text>
       ) : null}
-      {isPassword ? (
-        <Text style={styles.txtUnder}>Forgot Password ?</Text>
-      ) : null}
+      {isPasswordInRegister ? (<Text style={styles.txtNote}>Password must be at least 6 characters</Text>): null}
     </View>
   );
 };
@@ -74,6 +93,15 @@ const styles = StyleSheet.create({
     color: '#E7421B',
     textDecorationLine: 'underline',
     fontStyle: 'italic',
+    top: -6,
+    fontSize:12,
+  },
+  txtNote: {
+    color: 'gray',
+    textAlign: 'right',
+    top: -6,
+    fontStyle: 'italic',
+    fontSize:12,
   },
 });
 export default CustomInput;

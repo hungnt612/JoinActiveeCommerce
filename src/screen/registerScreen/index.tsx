@@ -17,7 +17,7 @@ import {
 import TxtTitle from '../../compoments/txtTitle';
 import CustomInput from '../../compoments/customInput';
 import CustomButton from '../../compoments/customButton';
-const SignUpScreen = () => {
+const RegisterScreen = () => {
   return (
     <SafeAreaView style={styles.root}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -29,11 +29,25 @@ const SignUpScreen = () => {
             <TxtTitle title={' join hihi Hello ht xin chao ht'} />
           </View>
           <View style={styles.inforContainer}>
-            <CustomInput label={'Email'} placeholder={'Input your email'} action={'Login'} />
+            <CustomInput
+              label={'Name'}
+              placeholder={'Con cho HT'}
+              action={'Register'} // must be Login or Register in this case
+            />
+            <CustomInput
+              label={'Email'}
+              placeholder={'Input your email'}
+              action={'Register'} // must be Login or Register in this case
+            />
             <CustomInput
               label={'Password'}
-              placeholder={'Input your password'}
-              action={'Login'}
+              placeholder={'*********'}
+              action={'Register'} // must be Login or Register  in this case
+            />
+            <CustomInput
+              label={'Retype Password'}
+              placeholder={'*********'}
+              action={'Register'} // must be Login or Register  in this case
             />
           </View>
           <View style={styles.btnContainer}>
@@ -69,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpScreen;
+export default RegisterScreen;
