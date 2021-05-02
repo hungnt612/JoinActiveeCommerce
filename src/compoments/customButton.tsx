@@ -9,6 +9,7 @@ import {
   useColorScheme,
   View,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 import {
@@ -38,7 +39,16 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         <Text style={styles.txtUnder}>or, create new account ?</Text>
       ) : null}
       <TouchableOpacity
-        onPress={() => onPress(label)}
+        onPress={() =>
+          Alert.alert('Title', 'Nut gi day ' + label, [
+            {
+              text: 'Cancel',
+              onPress: () => console.log('Cancel Pressed'),
+              style: 'cancel',
+            },
+            {text: 'OK', onPress: () => console.log('OK Pressed')},
+          ])
+        }
         style={{
           height: 60,
           borderRadius: 10,
@@ -77,7 +87,7 @@ const styles = StyleSheet.create({
   txtUnder: {
     color: 'gray',
     alignSelf: 'center',
-    top:6,
+    top: 6,
   },
 });
 export default CustomButton;

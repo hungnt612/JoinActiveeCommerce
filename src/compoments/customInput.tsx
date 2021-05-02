@@ -42,6 +42,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
           style={styles.customInput}
           placeholder={placeholder}
           secureTextEntry={isPasswordInLogin || isPasswordInRegister}
+          autoCorrect={false}
         />
         {isEmail ? (
           <Text style={styles.txtUnder}>or, {action} with phone number</Text>
@@ -59,6 +60,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         style={styles.customInput}
         placeholder={placeholder}
         secureTextEntry={isPasswordInLogin || isPasswordInRegister}
+        autoCorrect={false}
       />
       {isEmail ? (
         <Text style={styles.txtUnder}>or, {action} with a phone number</Text>

@@ -13,6 +13,7 @@ import {
   Keyboard,
   onChange,
   form,
+  Alert,
 } from 'react-native';
 import TxtTitle from '../../compoments/txtTitle';
 import CustomInput from '../../compoments/customInput';
@@ -54,13 +55,10 @@ const RegisterScreen = () => {
             <CustomButton
               label={'Login'}
               colorCode={'#F8B55D'}
-              onPress={(val: string) => login(val)}
             />
-
             <CustomButton
               label={'Sign Up'}
               colorCode={'#E7421B'}
-              onPress={(val: string) => signup(val)}
             />
           </View>
         </KeyboardAvoidingView>

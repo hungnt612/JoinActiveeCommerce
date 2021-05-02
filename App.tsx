@@ -1,13 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
+import {StackNavigator} from 'react-navigation'
 import React from 'react';
 import {
   SafeAreaView,
@@ -26,7 +17,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Loginscreen from "./src/screen/loginscreen";
+import {Loginsceen, Registerscreen} from "./src/defineName";
 import RegisterScreen from "./src/screen/registerScreen";
 
 const App = () => {
@@ -43,6 +34,16 @@ const App = () => {
     </SafeAreaView>
   );
 };
+
+// const App = StackNavigator({
+//     Loginsceen:{
+//       screen: Loginsceen,
+//       navigationOptions:{
+//         headerTitle: 'Loginsceen'
+//       },
+//     }
+// });
+
 
 const styles = StyleSheet.create({
   sectionContainer: {
