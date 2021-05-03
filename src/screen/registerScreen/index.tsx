@@ -53,12 +53,14 @@ const RegisterScreen = () => {
           </View>
           <View style={styles.btnContainer}>
             <CustomButton
-              label={'Login'}
-              colorCode={'#F8B55D'}
-            />
-            <CustomButton
               label={'Sign Up'}
               colorCode={'#E7421B'}
+              action={'register'}
+            />
+            <CustomButton
+              label={'Login'}
+              colorCode={'#F8B55D'}
+              action={'register'}
             />
           </View>
         </KeyboardAvoidingView>

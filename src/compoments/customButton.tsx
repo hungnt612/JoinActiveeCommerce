@@ -24,23 +24,29 @@ type CustomButtonProps = {
   label: string;
   colorCode: string;
   onPress: (val: string) => void;
+  string: string;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   label,
   colorCode,
   onPress,
+  action,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
-  const isSignInBtn = label === 'Sign Up';
+  const isSignInBtnAndLogin = label === 'Sign Up' && action==='login';
+  const isLoginBtnAndRegister = label === 'Login' && action==='register';
   return (
     <View>
-      {isSignInBtn ? (
+      {isSignInBtnAndLogin ? (
         <Text style={styles.txtUnder}>or, create new account ?</Text>
+      ) : null}
+      {isLoginBtnAndRegister?  (
+        <Text style={styles.txtUnder}>Already have an Account ?</Text>
       ) : null}
       <TouchableOpacity
         onPress={() =>
-          Alert.alert('Title', 'Nut gi day ' + label, [
+          Alert.alert('Title', 'HIHI? ' + label, [
             {
               text: 'Cancel',
               onPress: () => console.log('Cancel Pressed'),

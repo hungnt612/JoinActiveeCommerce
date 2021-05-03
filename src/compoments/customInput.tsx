@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -33,6 +34,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   const isPasswordInLogin = label === 'Password' && action === 'Login';
   const isPasswordInRegister = action === 'Register' && label === 'Password';
   const sceenAction = action === 'Login';
+  const registerWithPhone=false;
 
   if (sceenAction) {
     return (
@@ -62,10 +64,16 @@ const CustomInput: React.FC<CustomInputProps> = ({
         secureTextEntry={isPasswordInLogin || isPasswordInRegister}
         autoCorrect={false}
       />
-      {isEmail ? (
-        <Text style={styles.txtUnder}>or, {action} with a phone number</Text>
+      <TouchableOpacity>
+        {isEmail ? (
+          <Text style={styles.txtUnder}>or, {action} with a phone number</Text>
+        ) : null}
+      </TouchableOpacity>
+      {isPasswordInRegister ? (
+        <Text style={styles.txtNote}>
+          Password must be at least 6 characters
+        </Text>
       ) : null}
-      {isPasswordInRegister ? (<Text style={styles.txtNote}>Password must be at least 6 characters</Text>): null}
     </View>
   );
 };
@@ -96,14 +104,14 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     fontStyle: 'italic',
     top: -6,
-    fontSize:12,
+    fontSize: 12,
   },
   txtNote: {
     color: 'gray',
     textAlign: 'right',
     top: -6,
     fontStyle: 'italic',
-    fontSize:12,
+    fontSize: 12,
   },
 });
 export default CustomInput;
